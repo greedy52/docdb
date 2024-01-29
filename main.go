@@ -17,10 +17,20 @@ import (
 	"go.mongodb.org/mongo-driver/x/mongo/driver/auth"
 )
 
+// // setup
 // $ export AWS_ACCESS_KEY_ID=<access_id>
 // $ export AWS_SECRET_ACCESS_KEY=<secret_key>
 // $ export AWS_DEFAULT_REGION=us-west-2
 // $ export DOCDB_URL=<docdb_url>
+
+// // sample run
+// $ go run .
+// == AWS caller identity
+// ARN:  arn:aws:sts::<account-id>:assumed-role/steve-poweruser/docdb-test
+// == Connect steve-documentdb-test.cluster-<some-random-stuff>.us-west-2.docdb.amazonaws.com:27017
+// Preparing...
+// Connected.
+// Result:  {steve 555}
 
 func main() {
 	ctx := context.TODO()
