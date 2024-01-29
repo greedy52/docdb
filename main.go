@@ -20,6 +20,7 @@ import (
 // // setup
 // $ export AWS_ACCESS_KEY_ID=<access_id>
 // $ export AWS_SECRET_ACCESS_KEY=<secret_key>
+// $ export AWS_SESSION_TOKEN=<session_token>
 // $ export AWS_DEFAULT_REGION=us-west-2
 // $ export DOCDB_URL=<docdb_url>
 
@@ -72,7 +73,7 @@ func connectWithAWSIdentity(ctx context.Context) {
 
 	result := client.Database("test").Collection("users").FindOne(ctx, bson.D{})
 	if result.Err() != nil {
-		log.Fatal(err)
+		log.Fatal(result.Err())
 	}
 
 	var data = struct {
